@@ -1,0 +1,1394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>pdp.c_strategy_analysis API documentation</title>
+<meta name="description" content="Data-driven Portfolio Management Part 3: Investment Strategies Analysis …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pdp.c_strategy_analysis</code></h1>
+</header>
+<section id="section-intro">
+<p>Data-driven Portfolio Management Part 3: Investment Strategies Analysis</p>
+<p>Group 4:
+Nicolás Amigo Sañudo
+Gema Díaz Ferreiro
+Rafael Sojo García
+Stephan Wolters Eisenhardt</p>
+<p>Python script related to the last part of the assignment and which conveys a
+detailed support for the investment analysis report</p>
+<p>All functions serve a special purpose for an in-depth data visualization analysis
+all of which are described in detail in the corresponiding docstrings.</p>
+<p>Overview of libraries used:</p>
+<p>pandas (pd): The pandas library is used to handle the input data as a DataFrame.
+Functions like load_file use it to read the CSV file, while other functions use
+it for filtering and grouping the data.</p>
+<p>numpy (np): Numpy is used for numerical operations and generating sequences.
+For example, in the return_distribution_area function, it is used to create an
+evenly spaced range of values for the x-axis.</p>
+<p>matplotlib.pyplot (plt): The pyplot module from matplotlib is used for creating
+and customizing various types of plots in the functions. Functions like
+return_distribution, return_distribution_area, and others use it to create the
+figures, set labels,
+and customize the appearance of the plots.</p>
+<p>seaborn (sns): Seaborn is used to create visually appealing statistical graphics
+in the functions. For example, return_average uses it for creating a bar plot,
+return_risk_scatter for a scatter plot, and return_risk_heatmap for a heatmap.</p>
+<p>matplotlib.colors.LogNorm: This class is used to normalize the data using a
+logarithmic scale in the return_risk_hexbin function. It improves the visualization
+of the hexbin plot by scaling the data appropriately.</p>
+<p>scipy.stats.gaussian_kde: This class is used to create a kernel density estimate
+using Gaussian kernels in the return_distribution_area function. It helps to
+estimate the probability density function of the returns data.</p>
+<p>scipy.integrate.quad: This function is used to calculate the area under the
+kernel density estimate curve in the return_distribution_area function. It helps
+to quantify the area of positive and negative returns.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Data-driven Portfolio Management Part 3: Investment Strategies Analysis
+
+Group 4: 
+Nicolás Amigo Sañudo
+Gema Díaz Ferreiro
+Rafael Sojo García
+Stephan Wolters Eisenhardt
+
+Python script related to the last part of the assignment and which conveys a 
+detailed support for the investment analysis report
+
+All functions serve a special purpose for an in-depth data visualization analysis
+all of which are described in detail in the corresponiding docstrings.
+
+
+Overview of libraries used:
+
+pandas (pd): The pandas library is used to handle the input data as a DataFrame. 
+Functions like load_file use it to read the CSV file, while other functions use 
+it for filtering and grouping the data.
+
+numpy (np): Numpy is used for numerical operations and generating sequences. 
+For example, in the return_distribution_area function, it is used to create an 
+evenly spaced range of values for the x-axis.
+
+matplotlib.pyplot (plt): The pyplot module from matplotlib is used for creating 
+and customizing various types of plots in the functions. Functions like 
+return_distribution, return_distribution_area, and others use it to create the 
+figures, set labels,  and customize the appearance of the plots.
+
+seaborn (sns): Seaborn is used to create visually appealing statistical graphics 
+in the functions. For example, return_average uses it for creating a bar plot, 
+return_risk_scatter for a scatter plot, and return_risk_heatmap for a heatmap.
+
+matplotlib.colors.LogNorm: This class is used to normalize the data using a 
+logarithmic scale in the return_risk_hexbin function. It improves the visualization 
+of the hexbin plot by scaling the data appropriately.
+
+scipy.stats.gaussian_kde: This class is used to create a kernel density estimate 
+using Gaussian kernels in the return_distribution_area function. It helps to 
+estimate the probability density function of the returns data.
+
+scipy.integrate.quad: This function is used to calculate the area under the 
+kernel density estimate curve in the return_distribution_area function. It helps 
+to quantify the area of positive and negative returns.
+&#34;&#34;&#34;
+
+#%%
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.colors import LogNorm
+from scipy.stats import gaussian_kde
+from scipy.integrate import quad
+
+# Portfolio mebtrics file location
+metrics_file = &#34;../metrics/portfolio_metrics.csv&#34;
+
+#%%
+def main() -&gt; None:
+    &#34;&#34;&#34;
+    Main program entry point to execute all the analysis functions in sequence.
+    
+    The function loads the portfolio metrics data from a CSV file and subsequently calls
+    each analysis and visualization function in order. It also includes line breaks to
+    separate the output of each function for better readability.
+    
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; main()
+    &#34;&#34;&#34;
+    df = load_file()
+    
+    functions = [
+        return_distribution,
+        return_distribution_area,
+        return_average,
+        return_risk_scatter,
+        return_risk_heatmap,
+        return_risk_contour,
+        return_risk_hexbin,
+    ]
+    
+    for func in functions:
+        func(df)
+        print(&#39;\n&#39; * 5)
+    
+ #%%
+def load_file() -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Loads the portfolio metrics data from a CSV file into a pandas DataFrame and returns it.
+    
+    The function reads the portfolio_metrics.csv file and creates a pandas DataFrame. The
+    DataFrame can then be used as input for further analysis and visualization functions.
+    
+    This function also checks if the column names are correct and if the first five columns
+    are integers and the last two columns are floats. If the checks fail, appropriate errors
+    are raised.
+    
+    Args:
+        None
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the data from the portfolio_metrics.csv file.
+
+    Raises:
+        ValueError: If the column names do not match the expected column names.
+        TypeError: If the first five columns are not integers or the last two columns are not floats.
+
+    Notes:
+        Ensure that the &#39;portfolio_metrics.csv&#39; file is available in the same directory as the script.
+
+    Example:
+        &gt;&gt;&gt; df = load_file()
+    &#34;&#34;&#34;
+    # Read the CSV file
+    df = pd.read_csv(metrics_file)
+
+    # Check if the column names are correct
+    expected_columns = [&#34;ST&#34;, &#34;CB&#34;, &#34;PB&#34;, &#34;GO&#34;, &#34;CA&#34;, &#34;RETURN&#34;, &#34;VOLAT&#34;]
+    if df.columns.tolist() != expected_columns:
+        raise ValueError(f&#34;Unexpected column names. Expected: {expected_columns}, Got: {df.columns.tolist()}&#34;)
+
+    # Check if the first five columns are integers
+    for col in expected_columns[:5]:
+        if not pd.api.types.is_integer_dtype(df[col]):
+            raise TypeError(f&#34;Column &#39;{col}&#39; should be of type int, but got {df[col].dtype}&#34;)
+
+    # Check if the last two columns are floats
+    for col in expected_columns[-2:]:
+        if not pd.api.types.is_float_dtype(df[col]):
+            raise TypeError(f&#34;Column &#39;{col}&#39; should be of type float, but got {df[col].dtype}&#34;)
+
+    return df
+
+#%%
+def return_distribution(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Plots the return distribution for 2020 with kernel density estimation and count per bin.
+
+    The function creates a histogram with custom bin edges, ensuring that zero is an edge between two bins.
+    It also overlays a kernel density estimate on the histogram.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+    
+    Raises:
+        None
+
+    Notes: 
+        One of the seven analysis plots used in the assigmment. 
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_distribution(df)
+    &#34;&#34;&#34;
+    # Set figure size
+    plt.figure(figsize=(12, 8))
+
+    # Calculate the number of bins
+    n_bins = 10  # 10 bins
+
+    # Calculate the range of returns
+    min_return = data[&#34;RETURN&#34;].min()
+    max_return = data[&#34;RETURN&#34;].max()
+
+    # Calculate bin width based on the total range and the number of bins
+    bin_width = (max_return - min_return) / n_bins
+
+    # Create custom bin edges
+    bin_edges_neg = np.arange(0, min_return - bin_width, -bin_width)[::-1]
+    bin_edges_pos = np.arange(0, max_return + bin_width, bin_width)
+    bin_edges = np.concatenate((bin_edges_neg, bin_edges_pos))
+
+    # Histogram with kernel density estimate and custom bin edges
+    sns.histplot(data, x=&#34;return&#34;, kde=True, bins=bin_edges, edgecolor=&#39;black&#39;, linewidth=1)
+
+    # Title and axis labels
+    plt.title(f&#34;Return Distribution&#34;)
+    plt.xlabel(&#34;Return in %&#34;)
+    plt.ylabel(&#34;Kernel Density Estimate &amp; Count&#34;)
+
+    plt.show()
+#%%
+def return_distribution_area(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Plots the return distribution for 2020 with kernel density estimation and areas.
+
+    The function fits a Kernel Density Estimate (KDE) to the data and plots it. It also calculates
+    the area under the KDE curve for values greater than zero and less than zero, filling those areas
+    with different colors.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_distribution_area(df)
+    &#34;&#34;&#34;
+    # Fit a Kernel Density Estimate to the data
+    kde = gaussian_kde(data[&#34;RETURN&#34;])
+
+    # Set figure size
+    plt.figure(figsize=(12, 8))
+
+    # Plot the KDE
+    x_range = np.linspace(data[&#34;RETURN&#34;].min(), data[&#34;RETURN&#34;].max(), 1000)
+    plt.plot(x_range, kde(x_range), label=&#39;KDE&#39;)
+
+    # Calculate the area under the KDE for values greater than zero and less than zero
+    area_positive, _ = quad(kde, 0, data[&#34;RETURN&#34;].max())
+    area_negative, _ = quad(kde, data[&#34;RETURN&#34;].min(), 0)
+
+    # Fill the areas and add annotations
+    plt.fill_between(x_range, kde(x_range), where=(x_range &gt; 0), color=&#39;g&#39;, alpha=0.2)
+    plt.fill_between(x_range, kde(x_range), where=(x_range &lt; 0), color=&#39;r&#39;, alpha=0.2)
+
+    plt.annotate(f&#34;Area &gt; 0: {area_positive:.2f}&#34;, xy=(0.6, 0.8), xycoords=&#39;axes fraction&#39;, fontsize=10, backgroundcolor=&#39;w&#39;)
+    plt.annotate(f&#34;Area &lt; 0: {area_negative:.2f}&#34;, xy=(0.6, 0.75), xycoords=&#39;axes fraction&#39;, fontsize=10, backgroundcolor=&#39;w&#39;)
+
+    # Add a vertical line at zero
+    plt.axvline(0, color=&#39;k&#39;, linestyle=&#39;--&#39;, linewidth=1)
+
+    # Title and axis labels
+    plt.title(f&#34;Return Distribution Area&#34;)
+    plt.xlabel(&#34;Return in %&#34;)
+    plt.ylabel(&#34;Kernel Density Estimate&#34;)
+
+    plt.legend()
+    plt.show()
+#%%
+def return_average(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Plots the average positive and negative returns and their counts in a bar chart.
+
+    The function calculates the average positive and negative returns, as well as the number of
+    positive and negative returns. It then creates a bar chart to display this information, along
+    with the expected value of returns.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_average(df)
+    &#34;&#34;&#34;
+    # Calculate the average positive and negative returns
+    average_positive_returns = data[data[&#34;RETURN&#34;] &gt; 0][&#34;RETURN&#34;].mean()
+    average_negative_returns = data[data[&#34;RETURN&#34;] &lt; 0][&#34;RETURN&#34;].mean()
+
+    # Calculate the number of positive and negative returns
+    num_positive_returns = len(data[data[&#34;RETURN&#34;] &gt; 0])
+    num_negative_returns = len(data[data[&#34;RETURN&#34;] &lt; 0])
+
+    # Calculate the expected value of returns
+    expected_value = (data[&#34;RETURN&#34;] * (1 / len(data))).sum()
+
+    # Create a DataFrame for the average positive and negative returns
+    plot_data = pd.DataFrame({
+        &#34;Return Type&#34;: [&#34;Average Positive Returns&#34;, &#34;Average Negative Returns&#34;],
+        &#34;Return&#34;: [average_positive_returns, average_negative_returns]
+    })
+
+    # Add the number of positive and negative returns to the plot_data DataFrame
+    plot_data[&#34;Count&#34;] = [num_positive_returns, num_negative_returns]
+
+    # Create a bar plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.barplot(x=&#34;Return Type&#34;, y=&#34;Return&#34;, data=plot_data, palette=[&#34;g&#34;, &#34;r&#34;], alpha=0.6, ax=ax)
+
+    # Plot the horizontal line for the expected value
+    ax.axhline(expected_value, color=&#34;blue&#34;, linestyle=&#34;--&#34;, label=f&#34;Expected Value: {expected_value / 100:.2%}&#34;)
+    ax.axhline(average_positive_returns, color=&#34;green&#34;, linestyle=&#34;--&#34;, label=f&#34;Avg. Pos. Return: {average_positive_returns / 100:.2%}&#34;)
+    ax.axhline(average_negative_returns, color=&#34;red&#34;, linestyle=&#34;--&#34;, label=f&#34;Avg. Neg. Return: {average_negative_returns / 100:.2%}&#34;)
+
+    ax.set_ylabel(&#34;Average Return in %&#34;)
+    ax.set_title(&#34;Average Positive and Negative Returns&#34;)
+    ax.legend()
+
+    # Annotate the bars with the number of positive and negative returns
+    for idx, row in plot_data.iterrows():
+        ax.text(idx, row[&#34;RETURN&#34;] + (row[&#34;RETURN&#34;] * 0.01), f&#34;Count: {row[&#39;Count&#39;]}&#34;, ha=&#34;center&#34;, va=&#34;bottom&#34;, fontsize=10, color=&#34;k&#34;)
+
+    plt.show()
+
+#%%
+def return_risk_scatter(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a scatter plot of normalized return (y-axis) and risk (volatility, x-axis)
+    for all portfolios, and annotates each data point with the corresponding index.
+
+    The function normalizes return and volatility values to make it easier to compare 
+    portfolios. It also calculates the mean values for return and risk, and draws the 
+    corresponding vertical and horizontal lines. The plot is divided into four quadrants,
+    and the number of portfolios in each quadrant is annotated.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_scatter(df)
+    &#34;&#34;&#34;
+    # Normalize return and volatility for easy portfolio comparison
+    data[&#34;RETURN&#34;] = (data[&#34;RETURN&#34;] - data[&#34;RETURN&#34;].min()) / (data[&#34;RETURN&#34;].max() - data[&#34;RETURN&#34;].min())
+    data[&#34;VOLAT&#34;] = (data[&#34;VOLAT&#34;] - data[&#34;VOLAT&#34;].min()) / (data[&#34;VOLAT&#34;].max() - data[&#34;VOLAT&#34;].min())
+
+    # Mean values for return and volatility
+    mean_return = data[&#34;RETURN&#34;].mean()
+    mean_volatility = data[&#34;VOLAT&#34;].mean()
+
+    # Count data points per quadrant
+    q1_count = len(data[(data[&#34;VOLAT&#34;] &gt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &gt; mean_return)])
+    q2_count = len(data[(data[&#34;VOLAT&#34;] &lt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &gt; mean_return)])
+    q3_count = len(data[(data[&#34;VOLAT&#34;] &lt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &lt; mean_return)])
+    q4_count = len(data[(data[&#34;VOLAT&#34;] &gt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &lt; mean_return)])
+
+    # Create a scatter plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.scatterplot(x=&#34;volatility&#34;, y=&#34;return&#34;, data=data, alpha=0.6, ax=ax)
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Normalized Return vs. Risk (Volatility) for All Portfolios&#34;)
+
+    # Iterate over the DataFrame and add annotations for each point&#39;s index
+    for idx, row in data.iterrows():
+      ax.annotate(idx, (row[&#34;VOLAT&#34;], row[&#34;RETURN&#34;]), textcoords=&#34;offset pixels&#34;, xytext=(7.5, 7.5), ha=&#34;center&#34;, fontsize=8) 
+
+    # Get plot limits
+    x_min, x_max = ax.get_xlim()
+    y_min, y_max = ax.get_ylim()
+
+    # Mean values for return and volatility         
+    plt.axhline(y=mean_return, color=&#39;k&#39;, linestyle=&#39;--&#39;, linewidth=1)           
+    plt.axvline(x=mean_volatility, color=&#39;k&#39;,linestyle=&#39;--&#39;, linewidth=1)
+
+    # Annotate the count of data points in each quadrant
+    ax.annotate(f&#34;Q1: {q1_count}&#34;, xy=(x_max * 0.9, y_max * 0.9), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Q2: {q2_count}&#34;, xy=(x_min + (x_max - x_min) * 0.1, y_max * 0.9), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Q3: {q3_count}&#34;, xy=(x_min + (x_max - x_min) * 0.1, y_min + (y_max - y_min) * 0.1), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Q4: {q4_count}&#34;, xy=(x_max * 0.9, y_min + (y_max - y_min) * 0.1), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+
+    # Annotate the mean return and mean volatility lines
+    ax.annotate(f&#34;Mean Return: {mean_return:.2f}&#34;, xy=(x_min, mean_return), xytext=(x_min + 0.01, mean_return + 0.03), fontsize=10, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Mean Volatility: {mean_volatility:.2f}&#34;, xy=(mean_volatility, y_min + 0.02), xytext=(mean_volatility + 0.02, y_min + 0.02), fontsize=10, ha=&#34;center&#34;, rotation=90, backgroundcolor=&#34;w&#34;)
+
+    plt.show()
+#%%
+def return_risk_heatmap(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a heatmap of return (y-axis) vs. risk (volatility, x-axis) for different
+    portfolios, visualizing the density of portfolios within each bin.
+
+    The function creates bins for return and volatility, then calculates the number of
+    portfolios within each bin. It uses this data to create a heatmap that provides a
+    visual representation of the distribution of portfolios based on return and risk.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_heatmap(df)
+    &#34;&#34;&#34;
+    # Create bins for return and volatility
+    data[&#34;return_bin&#34;] = pd.cut(data[&#34;RETURN&#34;], bins=10)
+    data[&#34;volatility_bin&#34;] = pd.cut(data[&#34;VOLAT&#34;], bins=10)
+
+    # Calculate the density of portfolios within each bin
+    heatmap_data = data.groupby([&#34;return_bin&#34;, &#34;volatility_bin&#34;]).size().unstack().fillna(0)
+
+    # Create a heatmap using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.heatmap(heatmap_data, cmap=&#34;YlGnBu&#34;, annot=True, fmt=&#34;g&#34;, ax=ax)
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Heatmap of Return vs. Risk (Volatility) for Different Portfolios&#34;)
+
+    plt.show()
+
+#%%
+def return_risk_contour(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a contour plot of return (y-axis) vs. risk (volatility, x-axis) for different
+    portfolios, visualizing the density of portfolios in a continuous manner.
+
+    The function creates a contour plot using Seaborn&#39;s kdeplot function to estimate the
+    probability density function of the joint distribution of return and risk. The plot
+    provides a visual representation of the distribution of portfolios based on return
+    and risk in a continuous manner, unlike the heatmap plot.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_contour(df)
+    &#34;&#34;&#34;
+    # Create a contour plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.kdeplot(x=data[&#34;VOLAT&#34;], y=data[&#34;RETURN&#34;], cmap=&#34;Blues&#34;, fill=True, ax=ax)
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Contour Plot of Return vs. Risk (Volatility) for Different Portfolios&#34;)
+
+    plt.show()
+
+#%%
+def return_risk_hexbin(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a hexbin plot of return (y-axis) vs. risk (volatility, x-axis) for different
+    portfolios, visualizing the density of portfolios using a grid of hexagons.
+
+    The function creates a hexbin plot using Matplotlib&#39;s hexbin function to bin the
+    data points in hexagonal cells. The color of each hexagon represents the log(count)
+    of portfolios within that cell. A grid of hexagons is used for binning instead of
+    squares to better represent the density of data points and reduce the influence of
+    empty bins in between data points.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_hexbin(df)
+    &#34;&#34;&#34;
+    # Create a hexbin plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    hb = ax.hexbin(data[&#34;VOLAT&#34;], data[&#34;RETURN&#34;], gridsize=30, cmap=&#39;viridis&#39;, mincnt=1, norm=LogNorm())
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Return vs. Risk (volatility) for All Portfolios&#34;)
+
+    # Add a colorbar to the plot
+    cb = plt.colorbar(hb, ax=ax)
+    cb.set_label(&#39;Log(count)&#39;)
+
+    plt.show()
+
+#%%
+if __name__ == &#34;__main__&#34;:
+    main()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pdp.c_strategy_analysis.load_file"><code class="name flex">
+<span>def <span class="ident">load_file</span></span>(<span>) -> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads the portfolio metrics data from a CSV file into a pandas DataFrame and returns it.</p>
+<p>The function reads the portfolio_metrics.csv file and creates a pandas DataFrame. The
+DataFrame can then be used as input for further analysis and visualization functions.</p>
+<p>This function also checks if the column names are correct and if the first five columns
+are integers and the last two columns are floats. If the checks fail, appropriate errors
+are raised.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>pd.DataFrame</code></dt>
+<dd>A DataFrame containing the data from the portfolio_metrics.csv file.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If the column names do not match the expected column names.</dd>
+<dt><code>TypeError</code></dt>
+<dd>If the first five columns are not integers or the last two columns are not floats.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>Ensure that the 'portfolio_metrics.csv' file is available in the same directory as the script.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = load_file()
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_file() -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Loads the portfolio metrics data from a CSV file into a pandas DataFrame and returns it.
+    
+    The function reads the portfolio_metrics.csv file and creates a pandas DataFrame. The
+    DataFrame can then be used as input for further analysis and visualization functions.
+    
+    This function also checks if the column names are correct and if the first five columns
+    are integers and the last two columns are floats. If the checks fail, appropriate errors
+    are raised.
+    
+    Args:
+        None
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the data from the portfolio_metrics.csv file.
+
+    Raises:
+        ValueError: If the column names do not match the expected column names.
+        TypeError: If the first five columns are not integers or the last two columns are not floats.
+
+    Notes:
+        Ensure that the &#39;portfolio_metrics.csv&#39; file is available in the same directory as the script.
+
+    Example:
+        &gt;&gt;&gt; df = load_file()
+    &#34;&#34;&#34;
+    # Read the CSV file
+    df = pd.read_csv(metrics_file)
+
+    # Check if the column names are correct
+    expected_columns = [&#34;ST&#34;, &#34;CB&#34;, &#34;PB&#34;, &#34;GO&#34;, &#34;CA&#34;, &#34;RETURN&#34;, &#34;VOLAT&#34;]
+    if df.columns.tolist() != expected_columns:
+        raise ValueError(f&#34;Unexpected column names. Expected: {expected_columns}, Got: {df.columns.tolist()}&#34;)
+
+    # Check if the first five columns are integers
+    for col in expected_columns[:5]:
+        if not pd.api.types.is_integer_dtype(df[col]):
+            raise TypeError(f&#34;Column &#39;{col}&#39; should be of type int, but got {df[col].dtype}&#34;)
+
+    # Check if the last two columns are floats
+    for col in expected_columns[-2:]:
+        if not pd.api.types.is_float_dtype(df[col]):
+            raise TypeError(f&#34;Column &#39;{col}&#39; should be of type float, but got {df[col].dtype}&#34;)
+
+    return df</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Main program entry point to execute all the analysis functions in sequence.</p>
+<p>The function loads the portfolio metrics data from a CSV file and subsequently calls
+each analysis and visualization function in order. It also includes line breaks to
+separate the output of each function for better readability.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; main()
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main() -&gt; None:
+    &#34;&#34;&#34;
+    Main program entry point to execute all the analysis functions in sequence.
+    
+    The function loads the portfolio metrics data from a CSV file and subsequently calls
+    each analysis and visualization function in order. It also includes line breaks to
+    separate the output of each function for better readability.
+    
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; main()
+    &#34;&#34;&#34;
+    df = load_file()
+    
+    functions = [
+        return_distribution,
+        return_distribution_area,
+        return_average,
+        return_risk_scatter,
+        return_risk_heatmap,
+        return_risk_contour,
+        return_risk_hexbin,
+    ]
+    
+    for func in functions:
+        func(df)
+        print(&#39;\n&#39; * 5)</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.return_average"><code class="name flex">
+<span>def <span class="ident">return_average</span></span>(<span>data: pandas.core.frame.DataFrame) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots the average positive and negative returns and their counts in a bar chart.</p>
+<p>The function calculates the average positive and negative returns, as well as the number of
+positive and negative returns. It then creates a bar chart to display this information, along
+with the expected value of returns.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>input dataframe from the original portfolio_metrics.csv file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>One of the seven analysis plots used in the assignment.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.read_csv(&quot;portfolio_metrics.csv&quot;)
+&gt;&gt;&gt; return_average(df)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_average(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Plots the average positive and negative returns and their counts in a bar chart.
+
+    The function calculates the average positive and negative returns, as well as the number of
+    positive and negative returns. It then creates a bar chart to display this information, along
+    with the expected value of returns.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_average(df)
+    &#34;&#34;&#34;
+    # Calculate the average positive and negative returns
+    average_positive_returns = data[data[&#34;RETURN&#34;] &gt; 0][&#34;RETURN&#34;].mean()
+    average_negative_returns = data[data[&#34;RETURN&#34;] &lt; 0][&#34;RETURN&#34;].mean()
+
+    # Calculate the number of positive and negative returns
+    num_positive_returns = len(data[data[&#34;RETURN&#34;] &gt; 0])
+    num_negative_returns = len(data[data[&#34;RETURN&#34;] &lt; 0])
+
+    # Calculate the expected value of returns
+    expected_value = (data[&#34;RETURN&#34;] * (1 / len(data))).sum()
+
+    # Create a DataFrame for the average positive and negative returns
+    plot_data = pd.DataFrame({
+        &#34;Return Type&#34;: [&#34;Average Positive Returns&#34;, &#34;Average Negative Returns&#34;],
+        &#34;Return&#34;: [average_positive_returns, average_negative_returns]
+    })
+
+    # Add the number of positive and negative returns to the plot_data DataFrame
+    plot_data[&#34;Count&#34;] = [num_positive_returns, num_negative_returns]
+
+    # Create a bar plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.barplot(x=&#34;Return Type&#34;, y=&#34;Return&#34;, data=plot_data, palette=[&#34;g&#34;, &#34;r&#34;], alpha=0.6, ax=ax)
+
+    # Plot the horizontal line for the expected value
+    ax.axhline(expected_value, color=&#34;blue&#34;, linestyle=&#34;--&#34;, label=f&#34;Expected Value: {expected_value / 100:.2%}&#34;)
+    ax.axhline(average_positive_returns, color=&#34;green&#34;, linestyle=&#34;--&#34;, label=f&#34;Avg. Pos. Return: {average_positive_returns / 100:.2%}&#34;)
+    ax.axhline(average_negative_returns, color=&#34;red&#34;, linestyle=&#34;--&#34;, label=f&#34;Avg. Neg. Return: {average_negative_returns / 100:.2%}&#34;)
+
+    ax.set_ylabel(&#34;Average Return in %&#34;)
+    ax.set_title(&#34;Average Positive and Negative Returns&#34;)
+    ax.legend()
+
+    # Annotate the bars with the number of positive and negative returns
+    for idx, row in plot_data.iterrows():
+        ax.text(idx, row[&#34;RETURN&#34;] + (row[&#34;RETURN&#34;] * 0.01), f&#34;Count: {row[&#39;Count&#39;]}&#34;, ha=&#34;center&#34;, va=&#34;bottom&#34;, fontsize=10, color=&#34;k&#34;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.return_distribution"><code class="name flex">
+<span>def <span class="ident">return_distribution</span></span>(<span>data: pandas.core.frame.DataFrame) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots the return distribution for 2020 with kernel density estimation and count per bin.</p>
+<p>The function creates a histogram with custom bin edges, ensuring that zero is an edge between two bins.
+It also overlays a kernel density estimate on the histogram.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>input dataframe from the original portfolio_metrics.csv file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>Notes</code></strong></dt>
+<dd>One of the seven analysis plots used in the assigmment.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.read_csv(&quot;portfolio_metrics.csv&quot;)
+&gt;&gt;&gt; return_distribution(df)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_distribution(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Plots the return distribution for 2020 with kernel density estimation and count per bin.
+
+    The function creates a histogram with custom bin edges, ensuring that zero is an edge between two bins.
+    It also overlays a kernel density estimate on the histogram.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+    
+    Raises:
+        None
+
+    Notes: 
+        One of the seven analysis plots used in the assigmment. 
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_distribution(df)
+    &#34;&#34;&#34;
+    # Set figure size
+    plt.figure(figsize=(12, 8))
+
+    # Calculate the number of bins
+    n_bins = 10  # 10 bins
+
+    # Calculate the range of returns
+    min_return = data[&#34;RETURN&#34;].min()
+    max_return = data[&#34;RETURN&#34;].max()
+
+    # Calculate bin width based on the total range and the number of bins
+    bin_width = (max_return - min_return) / n_bins
+
+    # Create custom bin edges
+    bin_edges_neg = np.arange(0, min_return - bin_width, -bin_width)[::-1]
+    bin_edges_pos = np.arange(0, max_return + bin_width, bin_width)
+    bin_edges = np.concatenate((bin_edges_neg, bin_edges_pos))
+
+    # Histogram with kernel density estimate and custom bin edges
+    sns.histplot(data, x=&#34;return&#34;, kde=True, bins=bin_edges, edgecolor=&#39;black&#39;, linewidth=1)
+
+    # Title and axis labels
+    plt.title(f&#34;Return Distribution&#34;)
+    plt.xlabel(&#34;Return in %&#34;)
+    plt.ylabel(&#34;Kernel Density Estimate &amp; Count&#34;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.return_distribution_area"><code class="name flex">
+<span>def <span class="ident">return_distribution_area</span></span>(<span>data: pandas.core.frame.DataFrame) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots the return distribution for 2020 with kernel density estimation and areas.</p>
+<p>The function fits a Kernel Density Estimate (KDE) to the data and plots it. It also calculates
+the area under the KDE curve for values greater than zero and less than zero, filling those areas
+with different colors.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>input dataframe from the original portfolio_metrics.csv file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>One of the seven analysis plots used in the assignment.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.read_csv(&quot;portfolio_metrics.csv&quot;)
+&gt;&gt;&gt; return_distribution_area(df)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_distribution_area(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Plots the return distribution for 2020 with kernel density estimation and areas.
+
+    The function fits a Kernel Density Estimate (KDE) to the data and plots it. It also calculates
+    the area under the KDE curve for values greater than zero and less than zero, filling those areas
+    with different colors.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_distribution_area(df)
+    &#34;&#34;&#34;
+    # Fit a Kernel Density Estimate to the data
+    kde = gaussian_kde(data[&#34;RETURN&#34;])
+
+    # Set figure size
+    plt.figure(figsize=(12, 8))
+
+    # Plot the KDE
+    x_range = np.linspace(data[&#34;RETURN&#34;].min(), data[&#34;RETURN&#34;].max(), 1000)
+    plt.plot(x_range, kde(x_range), label=&#39;KDE&#39;)
+
+    # Calculate the area under the KDE for values greater than zero and less than zero
+    area_positive, _ = quad(kde, 0, data[&#34;RETURN&#34;].max())
+    area_negative, _ = quad(kde, data[&#34;RETURN&#34;].min(), 0)
+
+    # Fill the areas and add annotations
+    plt.fill_between(x_range, kde(x_range), where=(x_range &gt; 0), color=&#39;g&#39;, alpha=0.2)
+    plt.fill_between(x_range, kde(x_range), where=(x_range &lt; 0), color=&#39;r&#39;, alpha=0.2)
+
+    plt.annotate(f&#34;Area &gt; 0: {area_positive:.2f}&#34;, xy=(0.6, 0.8), xycoords=&#39;axes fraction&#39;, fontsize=10, backgroundcolor=&#39;w&#39;)
+    plt.annotate(f&#34;Area &lt; 0: {area_negative:.2f}&#34;, xy=(0.6, 0.75), xycoords=&#39;axes fraction&#39;, fontsize=10, backgroundcolor=&#39;w&#39;)
+
+    # Add a vertical line at zero
+    plt.axvline(0, color=&#39;k&#39;, linestyle=&#39;--&#39;, linewidth=1)
+
+    # Title and axis labels
+    plt.title(f&#34;Return Distribution Area&#34;)
+    plt.xlabel(&#34;Return in %&#34;)
+    plt.ylabel(&#34;Kernel Density Estimate&#34;)
+
+    plt.legend()
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.return_risk_contour"><code class="name flex">
+<span>def <span class="ident">return_risk_contour</span></span>(<span>data: pandas.core.frame.DataFrame) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a contour plot of return (y-axis) vs. risk (volatility, x-axis) for different
+portfolios, visualizing the density of portfolios in a continuous manner.</p>
+<p>The function creates a contour plot using Seaborn's kdeplot function to estimate the
+probability density function of the joint distribution of return and risk. The plot
+provides a visual representation of the distribution of portfolios based on return
+and risk in a continuous manner, unlike the heatmap plot.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>input dataframe from the original portfolio_metrics.csv file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>One of the seven analysis plots used in the assignment.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.read_csv(&quot;portfolio_metrics.csv&quot;)
+&gt;&gt;&gt; return_risk_contour(df)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_risk_contour(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a contour plot of return (y-axis) vs. risk (volatility, x-axis) for different
+    portfolios, visualizing the density of portfolios in a continuous manner.
+
+    The function creates a contour plot using Seaborn&#39;s kdeplot function to estimate the
+    probability density function of the joint distribution of return and risk. The plot
+    provides a visual representation of the distribution of portfolios based on return
+    and risk in a continuous manner, unlike the heatmap plot.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_contour(df)
+    &#34;&#34;&#34;
+    # Create a contour plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.kdeplot(x=data[&#34;VOLAT&#34;], y=data[&#34;RETURN&#34;], cmap=&#34;Blues&#34;, fill=True, ax=ax)
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Contour Plot of Return vs. Risk (Volatility) for Different Portfolios&#34;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.return_risk_heatmap"><code class="name flex">
+<span>def <span class="ident">return_risk_heatmap</span></span>(<span>data: pandas.core.frame.DataFrame) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a heatmap of return (y-axis) vs. risk (volatility, x-axis) for different
+portfolios, visualizing the density of portfolios within each bin.</p>
+<p>The function creates bins for return and volatility, then calculates the number of
+portfolios within each bin. It uses this data to create a heatmap that provides a
+visual representation of the distribution of portfolios based on return and risk.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>input dataframe from the original portfolio_metrics.csv file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>One of the seven analysis plots used in the assignment.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.read_csv(&quot;portfolio_metrics.csv&quot;)
+&gt;&gt;&gt; return_risk_heatmap(df)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_risk_heatmap(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a heatmap of return (y-axis) vs. risk (volatility, x-axis) for different
+    portfolios, visualizing the density of portfolios within each bin.
+
+    The function creates bins for return and volatility, then calculates the number of
+    portfolios within each bin. It uses this data to create a heatmap that provides a
+    visual representation of the distribution of portfolios based on return and risk.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_heatmap(df)
+    &#34;&#34;&#34;
+    # Create bins for return and volatility
+    data[&#34;return_bin&#34;] = pd.cut(data[&#34;RETURN&#34;], bins=10)
+    data[&#34;volatility_bin&#34;] = pd.cut(data[&#34;VOLAT&#34;], bins=10)
+
+    # Calculate the density of portfolios within each bin
+    heatmap_data = data.groupby([&#34;return_bin&#34;, &#34;volatility_bin&#34;]).size().unstack().fillna(0)
+
+    # Create a heatmap using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.heatmap(heatmap_data, cmap=&#34;YlGnBu&#34;, annot=True, fmt=&#34;g&#34;, ax=ax)
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Heatmap of Return vs. Risk (Volatility) for Different Portfolios&#34;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.return_risk_hexbin"><code class="name flex">
+<span>def <span class="ident">return_risk_hexbin</span></span>(<span>data: pandas.core.frame.DataFrame) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a hexbin plot of return (y-axis) vs. risk (volatility, x-axis) for different
+portfolios, visualizing the density of portfolios using a grid of hexagons.</p>
+<p>The function creates a hexbin plot using Matplotlib's hexbin function to bin the
+data points in hexagonal cells. The color of each hexagon represents the log(count)
+of portfolios within that cell. A grid of hexagons is used for binning instead of
+squares to better represent the density of data points and reduce the influence of
+empty bins in between data points.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>input dataframe from the original portfolio_metrics.csv file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>One of the seven analysis plots used in the assignment.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.read_csv(&quot;portfolio_metrics.csv&quot;)
+&gt;&gt;&gt; return_risk_hexbin(df)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_risk_hexbin(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a hexbin plot of return (y-axis) vs. risk (volatility, x-axis) for different
+    portfolios, visualizing the density of portfolios using a grid of hexagons.
+
+    The function creates a hexbin plot using Matplotlib&#39;s hexbin function to bin the
+    data points in hexagonal cells. The color of each hexagon represents the log(count)
+    of portfolios within that cell. A grid of hexagons is used for binning instead of
+    squares to better represent the density of data points and reduce the influence of
+    empty bins in between data points.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_hexbin(df)
+    &#34;&#34;&#34;
+    # Create a hexbin plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    hb = ax.hexbin(data[&#34;VOLAT&#34;], data[&#34;RETURN&#34;], gridsize=30, cmap=&#39;viridis&#39;, mincnt=1, norm=LogNorm())
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Return vs. Risk (volatility) for All Portfolios&#34;)
+
+    # Add a colorbar to the plot
+    cb = plt.colorbar(hb, ax=ax)
+    cb.set_label(&#39;Log(count)&#39;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="pdp.c_strategy_analysis.return_risk_scatter"><code class="name flex">
+<span>def <span class="ident">return_risk_scatter</span></span>(<span>data: pandas.core.frame.DataFrame) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a scatter plot of normalized return (y-axis) and risk (volatility, x-axis)
+for all portfolios, and annotates each data point with the corresponding index.</p>
+<p>The function normalizes return and volatility values to make it easier to compare
+portfolios. It also calculates the mean values for return and risk, and draws the
+corresponding vertical and horizontal lines. The plot is divided into four quadrants,
+and the number of portfolios in each quadrant is annotated.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>input dataframe from the original portfolio_metrics.csv file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>One of the seven analysis plots used in the assignment.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.read_csv(&quot;portfolio_metrics.csv&quot;)
+&gt;&gt;&gt; return_risk_scatter(df)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_risk_scatter(data:pd.DataFrame) -&gt; None:
+    &#34;&#34;&#34;
+    Generates a scatter plot of normalized return (y-axis) and risk (volatility, x-axis)
+    for all portfolios, and annotates each data point with the corresponding index.
+
+    The function normalizes return and volatility values to make it easier to compare 
+    portfolios. It also calculates the mean values for return and risk, and draws the 
+    corresponding vertical and horizontal lines. The plot is divided into four quadrants,
+    and the number of portfolios in each quadrant is annotated.
+
+    Args:
+        data (pd.DataFrame): input dataframe from the original portfolio_metrics.csv file
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Notes:
+        One of the seven analysis plots used in the assignment.
+
+    Example:
+        &gt;&gt;&gt; df = pd.read_csv(&#34;portfolio_metrics.csv&#34;)
+        &gt;&gt;&gt; return_risk_scatter(df)
+    &#34;&#34;&#34;
+    # Normalize return and volatility for easy portfolio comparison
+    data[&#34;RETURN&#34;] = (data[&#34;RETURN&#34;] - data[&#34;RETURN&#34;].min()) / (data[&#34;RETURN&#34;].max() - data[&#34;RETURN&#34;].min())
+    data[&#34;VOLAT&#34;] = (data[&#34;VOLAT&#34;] - data[&#34;VOLAT&#34;].min()) / (data[&#34;VOLAT&#34;].max() - data[&#34;VOLAT&#34;].min())
+
+    # Mean values for return and volatility
+    mean_return = data[&#34;RETURN&#34;].mean()
+    mean_volatility = data[&#34;VOLAT&#34;].mean()
+
+    # Count data points per quadrant
+    q1_count = len(data[(data[&#34;VOLAT&#34;] &gt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &gt; mean_return)])
+    q2_count = len(data[(data[&#34;VOLAT&#34;] &lt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &gt; mean_return)])
+    q3_count = len(data[(data[&#34;VOLAT&#34;] &lt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &lt; mean_return)])
+    q4_count = len(data[(data[&#34;VOLAT&#34;] &gt; mean_volatility) &amp; (data[&#34;RETURN&#34;] &lt; mean_return)])
+
+    # Create a scatter plot using Seaborn
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.scatterplot(x=&#34;volatility&#34;, y=&#34;return&#34;, data=data, alpha=0.6, ax=ax)
+
+    ax.set_xlabel(&#34;Volatility (Risk)&#34;)
+    ax.set_ylabel(&#34;Return&#34;)
+    ax.set_title(&#34;Normalized Return vs. Risk (Volatility) for All Portfolios&#34;)
+
+    # Iterate over the DataFrame and add annotations for each point&#39;s index
+    for idx, row in data.iterrows():
+      ax.annotate(idx, (row[&#34;VOLAT&#34;], row[&#34;RETURN&#34;]), textcoords=&#34;offset pixels&#34;, xytext=(7.5, 7.5), ha=&#34;center&#34;, fontsize=8) 
+
+    # Get plot limits
+    x_min, x_max = ax.get_xlim()
+    y_min, y_max = ax.get_ylim()
+
+    # Mean values for return and volatility         
+    plt.axhline(y=mean_return, color=&#39;k&#39;, linestyle=&#39;--&#39;, linewidth=1)           
+    plt.axvline(x=mean_volatility, color=&#39;k&#39;,linestyle=&#39;--&#39;, linewidth=1)
+
+    # Annotate the count of data points in each quadrant
+    ax.annotate(f&#34;Q1: {q1_count}&#34;, xy=(x_max * 0.9, y_max * 0.9), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Q2: {q2_count}&#34;, xy=(x_min + (x_max - x_min) * 0.1, y_max * 0.9), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Q3: {q3_count}&#34;, xy=(x_min + (x_max - x_min) * 0.1, y_min + (y_max - y_min) * 0.1), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Q4: {q4_count}&#34;, xy=(x_max * 0.9, y_min + (y_max - y_min) * 0.1), fontsize=10, ha=&#34;center&#34;, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+
+    # Annotate the mean return and mean volatility lines
+    ax.annotate(f&#34;Mean Return: {mean_return:.2f}&#34;, xy=(x_min, mean_return), xytext=(x_min + 0.01, mean_return + 0.03), fontsize=10, va=&#34;center&#34;, backgroundcolor=&#34;w&#34;)
+    ax.annotate(f&#34;Mean Volatility: {mean_volatility:.2f}&#34;, xy=(mean_volatility, y_min + 0.02), xytext=(mean_volatility + 0.02, y_min + 0.02), fontsize=10, ha=&#34;center&#34;, rotation=90, backgroundcolor=&#34;w&#34;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pdp" href="index.html">pdp</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pdp.c_strategy_analysis.load_file" href="#pdp.c_strategy_analysis.load_file">load_file</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.main" href="#pdp.c_strategy_analysis.main">main</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.return_average" href="#pdp.c_strategy_analysis.return_average">return_average</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.return_distribution" href="#pdp.c_strategy_analysis.return_distribution">return_distribution</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.return_distribution_area" href="#pdp.c_strategy_analysis.return_distribution_area">return_distribution_area</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.return_risk_contour" href="#pdp.c_strategy_analysis.return_risk_contour">return_risk_contour</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.return_risk_heatmap" href="#pdp.c_strategy_analysis.return_risk_heatmap">return_risk_heatmap</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.return_risk_hexbin" href="#pdp.c_strategy_analysis.return_risk_hexbin">return_risk_hexbin</a></code></li>
+<li><code><a title="pdp.c_strategy_analysis.return_risk_scatter" href="#pdp.c_strategy_analysis.return_risk_scatter">return_risk_scatter</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

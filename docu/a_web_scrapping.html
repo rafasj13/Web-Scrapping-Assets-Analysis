@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>pdp.a_web_scrapping API documentation</title>
+<meta name="description" content="Data-driven Portfolio Management
+Part 1: Web Scrapping …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pdp.a_web_scrapping</code></h1>
+</header>
+<section id="section-intro">
+<p>Data-driven Portfolio Management
+Part 1: Web Scrapping</p>
+<p>Group 4:
+Nicolás Amigo Sañudo
+Gema Díaz Ferreiro
+Rafael Sojo García
+Stephan Wolters Eisenhardt</p>
+<p>Python script related to the first web scrapping part of the assigment.
+The code contains some context-specific function to facilitate the readibility,
+but the main structure is within
+if <strong>name</strong> == "<strong>main</strong>"</p>
+<p>All functions serve a special purpose for an in-depth data visualization analysis
+all of which are described in detail in the corresponiding docstrings.</p>
+<p>Overview of libraries used:</p>
+<p>pandas (pd): The pandas library is used to handle the input data as a DataFrame.
+Functions like load_file use it to read the CSV file, while other functions use
+it for filtering and grouping the data.</p>
+<p>numpy (np): Numpy is used for numerical operations and generating sequences.
+For example, in the return_distribution_area function, it is used to create an
+evenly spaced range of values for the x-axis.</p>
+<p>time: Python built-in package.</p>
+<p>selenium.webdriver.support.ui.WebDriverWait: This class is used for waiting
+a certain ammount of tiem during the accesing attemps to any HTML element given a driver</p>
+<p>selenium.webdriver.support.expected_conditions(EC): An expectation for checking that an element
+is present on the DOM of a page and visible. Visibility means that the element is not only displayed
+but also has a height and width that is greater than 0.</p>
+<p>selenium.webdriver.common.by.By: Set of supported locator strategies.</p>
+<p>selenium.webdriver.common.action_chains.ActionChains: Class to enable longs concatenations of
+actions before the actual execution</p>
+<p>selenium.webdriver.common.keys.Keys: Set of supported keyboard keys</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# coding: utf-8
+&#34;&#34;&#34;
+Data-driven Portfolio Management 
+Part 1: Web Scrapping
+
+Group 4: 
+Nicolás Amigo Sañudo
+Gema Díaz Ferreiro
+Rafael Sojo García
+Stephan Wolters Eisenhardt
+
+Python script related to the first web scrapping part of the assigment.
+The code contains some context-specific function to facilitate the readibility,
+but the main structure is within  if __name__ == &#34;__main__&#34;
+
+All functions serve a special purpose for an in-depth data visualization analysis
+all of which are described in detail in the corresponiding docstrings.
+
+
+Overview of libraries used:
+
+pandas (pd): The pandas library is used to handle the input data as a DataFrame. 
+Functions like load_file use it to read the CSV file, while other functions use 
+it for filtering and grouping the data.
+
+numpy (np): Numpy is used for numerical operations and generating sequences. 
+For example, in the return_distribution_area function, it is used to create an 
+evenly spaced range of values for the x-axis.
+
+time: Python built-in package.
+
+selenium.webdriver.support.ui.WebDriverWait: This class is used for waiting 
+a certain ammount of tiem during the accesing attemps to any HTML element given a driver
+
+selenium.webdriver.support.expected_conditions(EC): An expectation for checking that an element 
+is present on the DOM of a page and visible. Visibility means that the element is not only displayed 
+but also has a height and width that is greater than 0.
+
+selenium.webdriver.common.by.By: Set of supported locator strategies.
+
+selenium.webdriver.common.action_chains.ActionChains: Class to enable longs concatenations of 
+actions before the actual execution
+
+selenium.webdriver.common.keys.Keys: Set of supported keyboard keys
+
+
+&#34;&#34;&#34;
+
+# In[6]:
+import pandas as pd
+import time
+import numpy as np
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+import os
+
+
+# In[7]:
+
+#urls and filenames
+URLS = [
+    &#39;https://www.investing.com/funds/amundi-msci-wrld-ae-c&#39;,
+    &#39;https://www.investing.com/etfs/db-x-trackers-ii-global-sovereign-5&#39;,
+    &#39;https://www.investing.com/etfs/ishares-global-corporate-bond-$&#39;,
+    &#39;https://www.investing.com/etfs/spdr-gold-trust&#39;,
+    &#39;https://www.investing.com/indices/usdollar&#39;
+]
+
+
+FILENAMES = [
+    &#39;webscraping/amundi-msci-wrld-ae-c.csv&#39;,
+    &#39;webscraping/db-x-trackers-ii-global-sovereign-5.csv&#39;,
+    &#39;webscraping/ishares-global-corporate-bond-$-historical-data.csv&#39;,
+    &#39;webscraping/spdr-gold-trust.csv&#39;,
+    &#39;webscraping/usdollar.csv&#39;
+    ]
+
+# start and end dates
+STARTDATE_STR = &#34;01/01/2020&#34;
+ENDDATE_STR = &#34;12/31/2020&#34;
+STARTDATE_ARR = [2020,1,1]
+ENDDATE_ARR = [2020,12,31]
+
+# Xpaths of the elements within the else
+STARTDT_EXPATH = &#34;//div[@class=&#39;HistoryDatePicker_HistoryDatePicker__sjrlU&#39;]/div[1]/div/div[1]&#34;
+ENDDT_EXPATH = &#34;//div[@class=&#39;HistoryDatePicker_HistoryDatePicker__sjrlU&#39;]/div[1]/div/div[2]&#34;
+APPLYBTN_EXPATH = &#34;//div[@class=&#39;HistoryDatePicker_footer__KBy9B&#39;]/button&#34; 
+RANGEPICKER_ECSS = &#34;DatePickerWrapper_input-text__PDRoD.DatePickerWrapper_center__zPpJy&#34;
+GETTABLE_EXPATH = &#39;//table[@data-test=&#34;historical-data-table&#34;]&#39;
+
+
+# In[8]:
+def select_date(dateObj, wantedDate: list ):
+    &#34;&#34;&#34;
+    Function to select the date by hovering over the calendar
+    
+    This funciton is used for the cases where the use of send_keys() is not possible due to the HTML format.
+    It hovers over the calendar by pressing keys of the keyboard after clicking at each date element, and 
+    moves according to current date and difference between the desired one.
+    
+    Args:
+        dateObj: date element from the HTML 
+        wantedDate: wanted date list with format YY/MM/DD
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; date_input = some_element.find_element(By.XPATH, Expath+&#34;/input&#34;)
+        &gt;&gt;&gt; select_date(date_input, [2020,12,31])
+    &#34;&#34;&#34;
+
+    
+    # prepare chain of actions
+    action.move_to_element(dateObj)
+
+    # It is needed to click 2 times since in some ocasions the finish date is by default +1 of the 
+    # last clickable object. This way it is fixed.
+    action.send_keys(Keys.ENTER)
+    action.click()
+    action.perform()
+
+    # hover to the year/month selection
+    for n in range(2):
+        action.send_keys(Keys.TAB)
+    action.send_keys(Keys.ENTER)
+
+
+    # calculate the difference between the desired date and the actual date
+    currtDate = np.array(dateObj.get_attribute(&#34;value&#34;).split(&#39;-&#39;), dtype=int)
+    year = abs(currtDate[0] - wantedDate[0])
+    mnth = currtDate[1] - wantedDate[1]
+    day = currtDate[2] - wantedDate[2]
+
+    # move to selected year
+    for n in range(year):
+        for k in range(3):
+            action.send_keys(Keys.ARROW_UP)
+
+    # move to selected month
+    for nj in range(abs(mnth)):
+        if mnth&gt;0:
+            action.send_keys(Keys.ARROW_LEFT)
+        else:
+            action.send_keys(Keys.ARROW_RIGHT)
+
+    # enter into the month and move to selected day
+    action.send_keys(Keys.ENTER)
+    for nd in range(abs(day)):
+        if day&gt;0:
+            action.send_keys(Keys.ARROW_LEFT)
+        else:
+            action.send_keys(Keys.ARROW_RIGHT)
+
+    # enter date      
+    action.send_keys(Keys.ENTER)
+    action.perform()
+        
+
+
+# In[9]:
+def prepare_Edate(Expath, date_Arr):
+    &#34;&#34;&#34;
+    Date inputation controller for assets different from amundi
+    
+    This funciton acts as the main controller for the steps required to 
+    set the date in the assets different from amundi, since they require 
+    a more complex management
+    
+    Args:
+        Expath: XPATH of the date clickable element
+        date_Arr: wanted date list with format YY/MM/DD
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; prepare_Edate(SOME_XPATH, [2020,12,31])
+    &#34;&#34;&#34;
+    
+    date_field = wait_and_click(By.XPATH, Expath)
+ 
+    # open and select the date by hovering through the dropdown. It is a dynamic
+    # object that is generated with a javascript file and cannot be accesed 
+    date_input = date_field.find_element(By.XPATH, Expath+&#34;/input&#34;)
+    select_date(date_input, date_Arr)
+
+
+# In[10]:
+def wait_and_click(by, path, t=5):
+    &#34;&#34;&#34;
+    Function to call WebDriverWait, click and wait.
+    
+    This function acts as a simplification of the 3 steps: take element, click and wait. Since this steps are repeated
+    several times, this way the code is simplified.
+    
+    Args:
+        by: How the element is acces. See By from selenium.webdriver.common.by
+        path: Path to the element in the correct format with respect by
+    Returns:
+        element: If accesed, it returns the element.
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; wait_and_click(By.ID, &#34;some_id&#34;)
+    &#34;&#34;&#34;
+    
+    element = WebDriverWait(driver, t).until(
+            EC.visibility_of_element_located((by, path))
+        )
+    # Click on the date range widget to open the calendar
+    element.click()
+    time.sleep(1)
+        
+    return element
+
+# In[11]:
+if __name__ == &#34;__main__&#34;:
+
+    for asset_url, asset_filename in zip(URLS, FILENAMES):
+
+        # Preparations
+        driver = webdriver.Chrome()  
+        driver.get(asset_url + &#34;-historical-data&#34;)
+        action = ActionChains(driver)
+
+        # Full screen just for commodity
+        driver.fullscreen_window()
+        time.sleep(1)
+
+        # Accept cookie settings popup
+        try:
+            agree_button = driver.find_element(By.ID, &#34;onetrust-accept-btn-handler&#34;)
+            agree_button.click()
+        except Exception as e:
+            print(f&#34;Exception 1 occurred: {str(e)}&#34;)
+
+
+        # wait for the popup to appear and close it
+        try:
+            wait_and_click(By.CSS_SELECTOR, &#34;i.popupCloseIcon.largeBannerCloser&#34;,t=10)
+        except Exception as e:
+            print(f&#34;Exception 2 occurred: {str(e)}&#34;)
+
+
+        try:
+            # Scroll down just for commodity
+            driver.execute_script(&#34;window.scrollTo(0, document.body.scrollHeight*0.1);&#34;)
+            time.sleep(1)
+
+            #First iteration for amundi has different html structure
+            if asset_url == URLS[0]:
+
+                # Wait for date range picker to be visible 
+                wait_and_click(By.ID, &#34;widgetFieldDateRange&#34;)
+
+
+                # Clear the start date input and enter a new date
+                start_date_input = driver.find_element(By.ID, &#34;startDate&#34;)
+                start_date_input.clear()
+                start_date_input.send_keys(STARTDATE_STR)
+
+                end_date_input = driver.find_element(By.ID, &#34;endDate&#34;)
+                end_date_input.clear()
+                end_date_input.send_keys(ENDDATE_STR)
+
+
+                # Click apply button
+                apply_button = driver.find_element(By.ID, &#34;applyBtn&#34;)
+                apply_button.click()
+                time.sleep(1)
+
+                # Get Table
+                table = driver.find_element(By.ID, &#39;curr_table&#39;)
+
+
+            #remaining iterations have same html structure
+            else:
+
+                # Wait for date range picker to be visible 
+                wait_and_click(By.CLASS_NAME, RANGEPICKER_ECSS)
+
+
+                # handle calendar widget
+                prepare_Edate(STARTDT_EXPATH, STARTDATE_ARR)
+                prepare_Edate(ENDDT_EXPATH, ENDDATE_ARR)
+
+
+                # Click on the apply button
+                apply_button = driver.find_element(By.XPATH, APPLYBTN_EXPATH)
+                apply_button.click()
+                time.sleep(1)
+
+                # Get Table
+                table = driver.find_element(By.XPATH, GETTABLE_EXPATH)
+
+        except Exception as e:
+            print(f&#34;Exception 3 occurred: {str(e)}&#34;)
+
+
+        table_html = table.get_attribute(&#39;outerHTML&#39;)
+        driver.close()
+
+        # Convert to CSV and download to work directory 
+        if not os.path.exists(&#39;./webscraping&#39;):
+            os.mkdir(&#39;./webscraping&#39;)
+        pd.read_html(table_html)[0].to_csv(asset_filename, index=False)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pdp.a_web_scrapping.prepare_Edate"><code class="name flex">
+<span>def <span class="ident">prepare_Edate</span></span>(<span>Expath, date_Arr)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Date inputation controller for assets different from amundi</p>
+<p>This funciton acts as the main controller for the steps required to
+set the date in the assets different from amundi, since they require
+a more complex management</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>Expath</code></strong></dt>
+<dd>XPATH of the date clickable element</dd>
+<dt><strong><code>date_Arr</code></strong></dt>
+<dd>wanted date list with format YY/MM/DD</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; prepare_Edate(SOME_XPATH, [2020,12,31])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def prepare_Edate(Expath, date_Arr):
+    &#34;&#34;&#34;
+    Date inputation controller for assets different from amundi
+    
+    This funciton acts as the main controller for the steps required to 
+    set the date in the assets different from amundi, since they require 
+    a more complex management
+    
+    Args:
+        Expath: XPATH of the date clickable element
+        date_Arr: wanted date list with format YY/MM/DD
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; prepare_Edate(SOME_XPATH, [2020,12,31])
+    &#34;&#34;&#34;
+    
+    date_field = wait_and_click(By.XPATH, Expath)
+ 
+    # open and select the date by hovering through the dropdown. It is a dynamic
+    # object that is generated with a javascript file and cannot be accesed 
+    date_input = date_field.find_element(By.XPATH, Expath+&#34;/input&#34;)
+    select_date(date_input, date_Arr)</code></pre>
+</details>
+</dd>
+<dt id="pdp.a_web_scrapping.select_date"><code class="name flex">
+<span>def <span class="ident">select_date</span></span>(<span>dateObj, wantedDate: list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to select the date by hovering over the calendar</p>
+<p>This funciton is used for the cases where the use of send_keys() is not possible due to the HTML format.
+It hovers over the calendar by pressing keys of the keyboard after clicking at each date element, and
+moves according to current date and difference between the desired one.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dateObj</code></strong></dt>
+<dd>date element from the HTML </dd>
+<dt><strong><code>wantedDate</code></strong></dt>
+<dd>wanted date list with format YY/MM/DD</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; date_input = some_element.find_element(By.XPATH, Expath+&quot;/input&quot;)
+&gt;&gt;&gt; select_date(date_input, [2020,12,31])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def select_date(dateObj, wantedDate: list ):
+    &#34;&#34;&#34;
+    Function to select the date by hovering over the calendar
+    
+    This funciton is used for the cases where the use of send_keys() is not possible due to the HTML format.
+    It hovers over the calendar by pressing keys of the keyboard after clicking at each date element, and 
+    moves according to current date and difference between the desired one.
+    
+    Args:
+        dateObj: date element from the HTML 
+        wantedDate: wanted date list with format YY/MM/DD
+
+    Returns:
+        None
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; date_input = some_element.find_element(By.XPATH, Expath+&#34;/input&#34;)
+        &gt;&gt;&gt; select_date(date_input, [2020,12,31])
+    &#34;&#34;&#34;
+
+    
+    # prepare chain of actions
+    action.move_to_element(dateObj)
+
+    # It is needed to click 2 times since in some ocasions the finish date is by default +1 of the 
+    # last clickable object. This way it is fixed.
+    action.send_keys(Keys.ENTER)
+    action.click()
+    action.perform()
+
+    # hover to the year/month selection
+    for n in range(2):
+        action.send_keys(Keys.TAB)
+    action.send_keys(Keys.ENTER)
+
+
+    # calculate the difference between the desired date and the actual date
+    currtDate = np.array(dateObj.get_attribute(&#34;value&#34;).split(&#39;-&#39;), dtype=int)
+    year = abs(currtDate[0] - wantedDate[0])
+    mnth = currtDate[1] - wantedDate[1]
+    day = currtDate[2] - wantedDate[2]
+
+    # move to selected year
+    for n in range(year):
+        for k in range(3):
+            action.send_keys(Keys.ARROW_UP)
+
+    # move to selected month
+    for nj in range(abs(mnth)):
+        if mnth&gt;0:
+            action.send_keys(Keys.ARROW_LEFT)
+        else:
+            action.send_keys(Keys.ARROW_RIGHT)
+
+    # enter into the month and move to selected day
+    action.send_keys(Keys.ENTER)
+    for nd in range(abs(day)):
+        if day&gt;0:
+            action.send_keys(Keys.ARROW_LEFT)
+        else:
+            action.send_keys(Keys.ARROW_RIGHT)
+
+    # enter date      
+    action.send_keys(Keys.ENTER)
+    action.perform()</code></pre>
+</details>
+</dd>
+<dt id="pdp.a_web_scrapping.wait_and_click"><code class="name flex">
+<span>def <span class="ident">wait_and_click</span></span>(<span>by, path, t=5)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to call WebDriverWait, click and wait.</p>
+<p>This function acts as a simplification of the 3 steps: take element, click and wait. Since this steps are repeated
+several times, this way the code is simplified.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>by</code></strong></dt>
+<dd>How the element is acces. See By from selenium.webdriver.common.by</dd>
+<dt><strong><code>path</code></strong></dt>
+<dd>Path to the element in the correct format with respect by</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>element</code></dt>
+<dd>If accesed, it returns the element.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">&gt;&gt;&gt; wait_and_click(By.ID, &quot;some_id&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def wait_and_click(by, path, t=5):
+    &#34;&#34;&#34;
+    Function to call WebDriverWait, click and wait.
+    
+    This function acts as a simplification of the 3 steps: take element, click and wait. Since this steps are repeated
+    several times, this way the code is simplified.
+    
+    Args:
+        by: How the element is acces. See By from selenium.webdriver.common.by
+        path: Path to the element in the correct format with respect by
+    Returns:
+        element: If accesed, it returns the element.
+
+    Raises:
+        None
+
+    Example:
+        &gt;&gt;&gt; wait_and_click(By.ID, &#34;some_id&#34;)
+    &#34;&#34;&#34;
+    
+    element = WebDriverWait(driver, t).until(
+            EC.visibility_of_element_located((by, path))
+        )
+    # Click on the date range widget to open the calendar
+    element.click()
+    time.sleep(1)
+        
+    return element</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pdp" href="index.html">pdp</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pdp.a_web_scrapping.prepare_Edate" href="#pdp.a_web_scrapping.prepare_Edate">prepare_Edate</a></code></li>
+<li><code><a title="pdp.a_web_scrapping.select_date" href="#pdp.a_web_scrapping.select_date">select_date</a></code></li>
+<li><code><a title="pdp.a_web_scrapping.wait_and_click" href="#pdp.a_web_scrapping.wait_and_click">wait_and_click</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

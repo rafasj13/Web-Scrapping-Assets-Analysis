@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>pdp.b_investment_strategies_generation API documentation</title>
+<meta name="description" content="Data-driven Portfolio Management
+Part 2: Investment Strategies Generation …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pdp.b_investment_strategies_generation</code></h1>
+</header>
+<section id="section-intro">
+<p>Data-driven Portfolio Management
+Part 2: Investment Strategies Generation</p>
+<p>Group 4:
+Nicolás Amigo Sañudo
+Gema Díaz Ferreiro
+Rafael Sojo García
+Stephan Wolters Eisenhardt</p>
+<p>Python script related to the second investment strategies generation part of the assigment.
+The code contains some context-specific function to facilitate the readibility,
+but the main structure is within
+if <strong>name</strong> == "<strong>main</strong>"</p>
+<p>All functions serve a special purpose for an in-depth data visualization analysis
+all of which are described in detail in the corresponiding docstrings.</p>
+<p>Overview of libraries used:</p>
+<p>pandas (pd): The pandas library is used to handle the input data as a DataFrame.
+Functions like load_file use it to read the CSV file, while other functions use
+it for filtering and grouping the data.</p>
+<p>math: The math library is used to compute the standard deviation in order to
+calculate the volatility.</p>
+<p>itertools: The itertools library is used to generate all possible combinations
+of percentages for the five assets in the investment portfolio.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Data-driven Portfolio Management
+Part 2: Investment Strategies Generation
+
+Group 4:
+Nicolás Amigo Sañudo
+Gema Díaz Ferreiro
+Rafael Sojo García
+Stephan Wolters Eisenhardt
+
+Python script related to the second investment strategies generation part of the assigment.
+The code contains some context-specific function to facilitate the readibility,
+but the main structure is within  if __name__ == &#34;__main__&#34;
+
+All functions serve a special purpose for an in-depth data visualization analysis
+all of which are described in detail in the corresponiding docstrings.
+
+
+Overview of libraries used:
+
+pandas (pd): The pandas library is used to handle the input data as a DataFrame.
+Functions like load_file use it to read the CSV file, while other functions use
+it for filtering and grouping the data.
+
+math: The math library is used to compute the standard deviation in order to
+calculate the volatility.
+
+itertools: The itertools library is used to generate all possible combinations
+of percentages for the five assets in the investment portfolio.
+&#34;&#34;&#34;
+
+import math
+import pandas as pd
+import itertools
+
+STARTDATE_STR = &#34;01/01/2020&#34;
+ENDDATE_STR = &#34;12/31/2020&#34;
+
+def portfolio_allocation():
+    &#34;&#34;&#34;
+    Function to generate the portfolio with all of the percentage combinations for the
+    different assets.
+
+    Args:
+        None
+    Returns:
+        None
+    Raises:
+        None
+    &#34;&#34;&#34;
+    percentage = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0]
+
+    # Generate all the possible combinations
+    combinations = list(itertools.product(percentage, repeat=5))
+
+    # Check if every row sums 100%
+    portfolio = []
+    for row in combinations:
+        if sum(row) == 1.0:
+            portfolio.append(row)
+
+    df = pd.DataFrame(portfolio, columns=[&#39;ST&#39;, &#39;CB&#39;, &#39;PB&#39;, &#39;GO&#39;, &#39;CA&#39;])
+    df.to_csv(&#39;portfolio_allocations.csv&#39;, index=False)
+
+
+def load_data():
+    &#34;&#34;&#34;
+    Function used to load the data all the date. This include the portfolio generated
+    in the function portfolio_allocation() and the data for the different assets generated
+    during the web scrapping part.
+
+    Args:
+        None
+    Returns:
+        assets_dict: which contains the Data and Price for each asset.
+        portfolio_data: which contains the percentage combination for
+        each asset.
+        cost: which contains the cost percentage applied to the invested
+        capital of each asset.
+    Rises:
+        None
+    &#34;&#34;&#34;
+    portfolio_data = pd.read_csv(&#34;portfolio_allocations.csv&#34;)
+
+    cash = pd.read_csv(&#34;usdollar.csv&#34;, delimiter=&#39;,&#39;, header=0)
+    gold = pd.read_csv(&#34;spdr-gold-trust.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+    stocks = pd.read_csv(&#34;amundi-msci-wrld-ae-c.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+    corporate_bonds = pd.read_csv(&#34;ishares-global-corporate-bond-$-historical-data.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+    public_bonds = pd.read_csv(&#34;db-x-trackers-ii-global-sovereign-5.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+
+    assets_dict = {&#34;ST&#34;: stocks,
+                   &#34;CB&#34;: corporate_bonds,
+                   &#34;PB&#34;: public_bonds,
+                   &#34;GO&#34;: gold,
+                   &#34;CA&#34;: cash}
+
+    # Cost of invested capital for each asset
+    cost = {&#34;ST&#34;: 0.004,
+            &#34;CB&#34;: 0.002,
+            &#34;PB&#34;: 0.002,
+            &#34;GO&#34;: 0.001,
+            &#34;CA&#34;: 0.0}
+
+    return assets_dict, portfolio_data, cost
+
+
+def process_df(asset):
+    &#34;&#34;&#34;
+    Function to some preprocessing to the assets data.
+
+    This function convert the Date string into a Datetime and it deletes the % in
+    Change %, if it existed, and it converts it into a float
+
+    Args:
+        asset: the data for the asset (date and price)
+    Returns:
+        None
+    Raises:
+        None
+    &#34;&#34;&#34;
+    # Preprocessing
+    asset[&#34;Date&#34;] = pd.to_datetime(asset[&#39;Date&#39;])
+    asset[&#39;Change %&#39;] = asset[&#39;Change %&#39;].astype(str).map(lambda x: x.rstrip(&#39;%&#39;))
+    asset[&#39;Change %&#39;] = asset[&#39;Change %&#39;].astype(str).astype(float)
+
+
+def fill_missing_dates(asset):
+    &#34;&#34;&#34;
+    This functions fills the missing dates for the assets.
+
+    The price for the dates with no associated price are filled. To fill them, we take
+    the closest value.
+
+    Args:
+        asset: the data for the asset (date and price)
+    Returns:
+        None
+    Rises:
+        None
+    &#34;&#34;&#34;
+    dates = pd.date_range(start=STARTDATE_STR, end=ENDDATE_STR)
+    df_dates = pd.DataFrame({&#39;Date&#39;: dates})
+    df_merged = pd.merge(df_dates, asset, on=&#39;Date&#39;, how=&#39;left&#39;)
+    df_merged = df_merged.fillna(method=&#39;ffill&#39;).fillna(method=&#39;bfill&#39;)
+
+    return df_merged
+
+
+def return_value(portfolio_data, assets, cost, investment):
+    &#34;&#34;&#34;
+    This function computes the return values for each portfolio.
+
+    To do so, it uses every line of the portfolio_allocations.csv and it iterates through
+    the assets and computes the value depending on the price of it and the amount invested
+    in that asset (which is bases on the percentage shown in the portfolio)
+
+    Args:
+        portfolio_data: it contains all of the percentage combinations for the different
+        assets.
+        assets: the data of all the asset (date and price)
+        cost: cost percentage applied to the invested capital of each asset.
+        investment: amount of money invested
+    Returns:
+        portfolio_date: portfolio data updated with the return value
+    Raises:
+        None
+    &#34;&#34;&#34;
+    # We create the column to store the return values
+    portfolio_data = portfolio_data.assign(RETURN=0)
+
+    for index, portfolioRow in portfolio_data.iterrows():
+
+        current_value = 0
+        buy_amount = 0
+
+        for key, value in assets.items():
+            # Money invested * weight of each asset
+            invested = investment * portfolioRow[key]
+            shares = invested / assets[key][assets[key][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0]
+
+            if key == &#34;CA&#34;:  # cash
+                buy_amount += (shares * (assets[key][assets[key][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0] / 100)) - (invested * cost[key])
+                current_value += shares * (shares * assets[key][assets[key][&#39;Date&#39;] == ENDDATE_STR][&#39;Price&#39;].iloc[0] / 100)
+
+            buy_amount += (shares * assets[key][assets[key][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0]) - (invested * cost[key])
+            current_value += shares * assets[key][assets[key][&#39;Date&#39;] == ENDDATE_STR][&#39;Price&#39;].iloc[0]
+
+        portfolio_return = ((current_value - buy_amount) / buy_amount) * 100
+        portfolio_data.loc[index, &#34;RETURN&#34;] = portfolio_return
+
+    portfolio_data.to_csv(&#39;portfolio_metrics.csv&#39;, index=False)
+
+    return portfolio_data
+
+
+def volatility_metric(portfolio_data, assets, investment):
+    &#34;&#34;&#34;
+    This function computes the volatility values for each portfolio.
+
+    To do so, it uses every line of the portfolio_allocations.csv and it iterates through
+    the assets and computes the value depending on the price of it and the amount invested
+    in that asset (which is bases on the percentage shown in the portfolio)
+
+    Args:
+        portfolio_data: it contains all of the percentage combinations for the different
+        assets.
+        assets: the data of all the asset (date and price)
+        investment: amount of money invested
+    Returns:
+        None
+    Raises:
+        None
+    &#34;&#34;&#34;
+
+    portfolio_data = portfolio_data.assign(VOLAT=0)
+
+    volatility_col = []
+    for i, portfolioRow in portfolio_data.iterrows():
+        values = pd.Series([], dtype=&#34;float64&#34;)
+        for asset in list(assets.keys()):
+            df_asset = assets.get(asset)
+
+            invested = investment * portfolioRow[asset]
+            shares = invested / assets[asset][assets[asset][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0]
+
+            if portfolioRow[asset] != 0:
+                values = pd.concat([values, shares * df_asset.loc[(df_asset[&#39;Date&#39;] &gt;= STARTDATE_STR) &amp; (df_asset[&#39;Date&#39;] &lt;= ENDDATE_STR)][&#39;Price&#39;]])
+        mean = values.mean()
+        sd = math.sqrt((values.apply(lambda value: pow((value - mean), 2))).sum() / len(values))
+        if mean != 0:
+            volatility = ((sd / mean) * 100)
+        else:
+            volatility = 0
+        volatility_col.append(volatility)
+
+    portfolio_data[&#34;VOLAT&#34;] = volatility_col
+
+    portfolio_data.to_csv(&#39;portfolio_metrics.csv&#39;, index=False)
+
+
+if __name__ == &#39;__main__&#39;:
+    # We use a 100$ investing.
+    investment = 100
+
+    portfolio_allocation()
+
+    assets, portfolio_data, cost = load_data()
+
+    process_df(assets.get(&#34;ST&#34;))
+    assets[&#34;ST&#34;] = fill_missing_dates(assets[&#34;ST&#34;])
+
+    process_df(assets.get(&#34;CB&#34;))
+    assets[&#34;CB&#34;] = fill_missing_dates(assets[&#34;CB&#34;])
+
+    process_df(assets.get(&#34;PB&#34;))
+    assets[&#34;PB&#34;] = fill_missing_dates(assets[&#34;PB&#34;])
+
+    process_df(assets.get(&#34;GO&#34;))
+    assets[&#34;GO&#34;] = fill_missing_dates(assets[&#34;GO&#34;])
+
+    process_df(assets.get(&#34;CA&#34;))
+    assets[&#34;CA&#34;] = fill_missing_dates(assets[&#34;CA&#34;])
+
+
+    portfolio_data = return_value(portfolio_data, assets, cost, investment)
+
+    volatility_metric(portfolio_data, assets, investment)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pdp.b_investment_strategies_generation.fill_missing_dates"><code class="name flex">
+<span>def <span class="ident">fill_missing_dates</span></span>(<span>asset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This functions fills the missing dates for the assets.</p>
+<p>The price for the dates with no associated price are filled. To fill them, we take
+the closest value.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>asset</code></strong></dt>
+<dd>the data for the asset (date and price)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="rises">Rises</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_missing_dates(asset):
+    &#34;&#34;&#34;
+    This functions fills the missing dates for the assets.
+
+    The price for the dates with no associated price are filled. To fill them, we take
+    the closest value.
+
+    Args:
+        asset: the data for the asset (date and price)
+    Returns:
+        None
+    Rises:
+        None
+    &#34;&#34;&#34;
+    dates = pd.date_range(start=STARTDATE_STR, end=ENDDATE_STR)
+    df_dates = pd.DataFrame({&#39;Date&#39;: dates})
+    df_merged = pd.merge(df_dates, asset, on=&#39;Date&#39;, how=&#39;left&#39;)
+    df_merged = df_merged.fillna(method=&#39;ffill&#39;).fillna(method=&#39;bfill&#39;)
+
+    return df_merged</code></pre>
+</details>
+</dd>
+<dt id="pdp.b_investment_strategies_generation.load_data"><code class="name flex">
+<span>def <span class="ident">load_data</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function used to load the data all the date. This include the portfolio generated
+in the function portfolio_allocation() and the data for the different assets generated
+during the web scrapping part.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>assets_dict</code></dt>
+<dd>which contains the Data and Price for each asset.</dd>
+<dt><code>portfolio_data</code></dt>
+<dd>which contains the percentage combination for</dd>
+<dt>each asset.</dt>
+<dt><code>cost</code></dt>
+<dd>which contains the cost percentage applied to the invested</dd>
+</dl>
+<p>capital of each asset.</p>
+<h2 id="rises">Rises</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_data():
+    &#34;&#34;&#34;
+    Function used to load the data all the date. This include the portfolio generated
+    in the function portfolio_allocation() and the data for the different assets generated
+    during the web scrapping part.
+
+    Args:
+        None
+    Returns:
+        assets_dict: which contains the Data and Price for each asset.
+        portfolio_data: which contains the percentage combination for
+        each asset.
+        cost: which contains the cost percentage applied to the invested
+        capital of each asset.
+    Rises:
+        None
+    &#34;&#34;&#34;
+    portfolio_data = pd.read_csv(&#34;portfolio_allocations.csv&#34;)
+
+    cash = pd.read_csv(&#34;usdollar.csv&#34;, delimiter=&#39;,&#39;, header=0)
+    gold = pd.read_csv(&#34;spdr-gold-trust.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+    stocks = pd.read_csv(&#34;amundi-msci-wrld-ae-c.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+    corporate_bonds = pd.read_csv(&#34;ishares-global-corporate-bond-$-historical-data.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+    public_bonds = pd.read_csv(&#34;db-x-trackers-ii-global-sovereign-5.csv&#34;,  delimiter=&#39;,&#39;, header=0)
+
+    assets_dict = {&#34;ST&#34;: stocks,
+                   &#34;CB&#34;: corporate_bonds,
+                   &#34;PB&#34;: public_bonds,
+                   &#34;GO&#34;: gold,
+                   &#34;CA&#34;: cash}
+
+    # Cost of invested capital for each asset
+    cost = {&#34;ST&#34;: 0.004,
+            &#34;CB&#34;: 0.002,
+            &#34;PB&#34;: 0.002,
+            &#34;GO&#34;: 0.001,
+            &#34;CA&#34;: 0.0}
+
+    return assets_dict, portfolio_data, cost</code></pre>
+</details>
+</dd>
+<dt id="pdp.b_investment_strategies_generation.portfolio_allocation"><code class="name flex">
+<span>def <span class="ident">portfolio_allocation</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to generate the portfolio with all of the percentage combinations for the
+different assets.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def portfolio_allocation():
+    &#34;&#34;&#34;
+    Function to generate the portfolio with all of the percentage combinations for the
+    different assets.
+
+    Args:
+        None
+    Returns:
+        None
+    Raises:
+        None
+    &#34;&#34;&#34;
+    percentage = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0]
+
+    # Generate all the possible combinations
+    combinations = list(itertools.product(percentage, repeat=5))
+
+    # Check if every row sums 100%
+    portfolio = []
+    for row in combinations:
+        if sum(row) == 1.0:
+            portfolio.append(row)
+
+    df = pd.DataFrame(portfolio, columns=[&#39;ST&#39;, &#39;CB&#39;, &#39;PB&#39;, &#39;GO&#39;, &#39;CA&#39;])
+    df.to_csv(&#39;portfolio_allocations.csv&#39;, index=False)</code></pre>
+</details>
+</dd>
+<dt id="pdp.b_investment_strategies_generation.process_df"><code class="name flex">
+<span>def <span class="ident">process_df</span></span>(<span>asset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to some preprocessing to the assets data.</p>
+<p>This function convert the Date string into a Datetime and it deletes the % in
+Change %, if it existed, and it converts it into a float</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>asset</code></strong></dt>
+<dd>the data for the asset (date and price)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_df(asset):
+    &#34;&#34;&#34;
+    Function to some preprocessing to the assets data.
+
+    This function convert the Date string into a Datetime and it deletes the % in
+    Change %, if it existed, and it converts it into a float
+
+    Args:
+        asset: the data for the asset (date and price)
+    Returns:
+        None
+    Raises:
+        None
+    &#34;&#34;&#34;
+    # Preprocessing
+    asset[&#34;Date&#34;] = pd.to_datetime(asset[&#39;Date&#39;])
+    asset[&#39;Change %&#39;] = asset[&#39;Change %&#39;].astype(str).map(lambda x: x.rstrip(&#39;%&#39;))
+    asset[&#39;Change %&#39;] = asset[&#39;Change %&#39;].astype(str).astype(float)</code></pre>
+</details>
+</dd>
+<dt id="pdp.b_investment_strategies_generation.return_value"><code class="name flex">
+<span>def <span class="ident">return_value</span></span>(<span>portfolio_data, assets, cost, investment)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function computes the return values for each portfolio.</p>
+<p>To do so, it uses every line of the portfolio_allocations.csv and it iterates through
+the assets and computes the value depending on the price of it and the amount invested
+in that asset (which is bases on the percentage shown in the portfolio)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>portfolio_data</code></strong></dt>
+<dd>it contains all of the percentage combinations for the different</dd>
+<dt>assets.</dt>
+<dt><strong><code>assets</code></strong></dt>
+<dd>the data of all the asset (date and price)</dd>
+<dt><strong><code>cost</code></strong></dt>
+<dd>cost percentage applied to the invested capital of each asset.</dd>
+<dt><strong><code>investment</code></strong></dt>
+<dd>amount of money invested</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>portfolio_date</code></dt>
+<dd>portfolio data updated with the return value</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_value(portfolio_data, assets, cost, investment):
+    &#34;&#34;&#34;
+    This function computes the return values for each portfolio.
+
+    To do so, it uses every line of the portfolio_allocations.csv and it iterates through
+    the assets and computes the value depending on the price of it and the amount invested
+    in that asset (which is bases on the percentage shown in the portfolio)
+
+    Args:
+        portfolio_data: it contains all of the percentage combinations for the different
+        assets.
+        assets: the data of all the asset (date and price)
+        cost: cost percentage applied to the invested capital of each asset.
+        investment: amount of money invested
+    Returns:
+        portfolio_date: portfolio data updated with the return value
+    Raises:
+        None
+    &#34;&#34;&#34;
+    # We create the column to store the return values
+    portfolio_data = portfolio_data.assign(RETURN=0)
+
+    for index, portfolioRow in portfolio_data.iterrows():
+
+        current_value = 0
+        buy_amount = 0
+
+        for key, value in assets.items():
+            # Money invested * weight of each asset
+            invested = investment * portfolioRow[key]
+            shares = invested / assets[key][assets[key][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0]
+
+            if key == &#34;CA&#34;:  # cash
+                buy_amount += (shares * (assets[key][assets[key][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0] / 100)) - (invested * cost[key])
+                current_value += shares * (shares * assets[key][assets[key][&#39;Date&#39;] == ENDDATE_STR][&#39;Price&#39;].iloc[0] / 100)
+
+            buy_amount += (shares * assets[key][assets[key][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0]) - (invested * cost[key])
+            current_value += shares * assets[key][assets[key][&#39;Date&#39;] == ENDDATE_STR][&#39;Price&#39;].iloc[0]
+
+        portfolio_return = ((current_value - buy_amount) / buy_amount) * 100
+        portfolio_data.loc[index, &#34;RETURN&#34;] = portfolio_return
+
+    portfolio_data.to_csv(&#39;portfolio_metrics.csv&#39;, index=False)
+
+    return portfolio_data</code></pre>
+</details>
+</dd>
+<dt id="pdp.b_investment_strategies_generation.volatility_metric"><code class="name flex">
+<span>def <span class="ident">volatility_metric</span></span>(<span>portfolio_data, assets, investment)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function computes the volatility values for each portfolio.</p>
+<p>To do so, it uses every line of the portfolio_allocations.csv and it iterates through
+the assets and computes the value depending on the price of it and the amount invested
+in that asset (which is bases on the percentage shown in the portfolio)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>portfolio_data</code></strong></dt>
+<dd>it contains all of the percentage combinations for the different</dd>
+<dt>assets.</dt>
+<dt><strong><code>assets</code></strong></dt>
+<dd>the data of all the asset (date and price)</dd>
+<dt><strong><code>investment</code></strong></dt>
+<dd>amount of money invested</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def volatility_metric(portfolio_data, assets, investment):
+    &#34;&#34;&#34;
+    This function computes the volatility values for each portfolio.
+
+    To do so, it uses every line of the portfolio_allocations.csv and it iterates through
+    the assets and computes the value depending on the price of it and the amount invested
+    in that asset (which is bases on the percentage shown in the portfolio)
+
+    Args:
+        portfolio_data: it contains all of the percentage combinations for the different
+        assets.
+        assets: the data of all the asset (date and price)
+        investment: amount of money invested
+    Returns:
+        None
+    Raises:
+        None
+    &#34;&#34;&#34;
+
+    portfolio_data = portfolio_data.assign(VOLAT=0)
+
+    volatility_col = []
+    for i, portfolioRow in portfolio_data.iterrows():
+        values = pd.Series([], dtype=&#34;float64&#34;)
+        for asset in list(assets.keys()):
+            df_asset = assets.get(asset)
+
+            invested = investment * portfolioRow[asset]
+            shares = invested / assets[asset][assets[asset][&#39;Date&#39;] == STARTDATE_STR][&#39;Price&#39;].iloc[0]
+
+            if portfolioRow[asset] != 0:
+                values = pd.concat([values, shares * df_asset.loc[(df_asset[&#39;Date&#39;] &gt;= STARTDATE_STR) &amp; (df_asset[&#39;Date&#39;] &lt;= ENDDATE_STR)][&#39;Price&#39;]])
+        mean = values.mean()
+        sd = math.sqrt((values.apply(lambda value: pow((value - mean), 2))).sum() / len(values))
+        if mean != 0:
+            volatility = ((sd / mean) * 100)
+        else:
+            volatility = 0
+        volatility_col.append(volatility)
+
+    portfolio_data[&#34;VOLAT&#34;] = volatility_col
+
+    portfolio_data.to_csv(&#39;portfolio_metrics.csv&#39;, index=False)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pdp" href="index.html">pdp</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pdp.b_investment_strategies_generation.fill_missing_dates" href="#pdp.b_investment_strategies_generation.fill_missing_dates">fill_missing_dates</a></code></li>
+<li><code><a title="pdp.b_investment_strategies_generation.load_data" href="#pdp.b_investment_strategies_generation.load_data">load_data</a></code></li>
+<li><code><a title="pdp.b_investment_strategies_generation.portfolio_allocation" href="#pdp.b_investment_strategies_generation.portfolio_allocation">portfolio_allocation</a></code></li>
+<li><code><a title="pdp.b_investment_strategies_generation.process_df" href="#pdp.b_investment_strategies_generation.process_df">process_df</a></code></li>
+<li><code><a title="pdp.b_investment_strategies_generation.return_value" href="#pdp.b_investment_strategies_generation.return_value">return_value</a></code></li>
+<li><code><a title="pdp.b_investment_strategies_generation.volatility_metric" href="#pdp.b_investment_strategies_generation.volatility_metric">volatility_metric</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
